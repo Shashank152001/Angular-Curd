@@ -1,0 +1,51 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h1>Sudent Form</h1>
+            <form>
+                <div class="form-group">
+                    <label for="" class="form-label">Name</label>
+                    <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone:true}" name="name" id="name" placeholder="Enter Name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Address</label>
+                    <input type="text" [(ngModel)]="address" [ngModelOptions]="{standalone:true}" name="adress" id="address" placeholder="Enter Address" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Phone</label>
+                    <input type="text" [(ngModel)]="phone" [ngModelOptions]="{standalone:true}" name="phone" id="phone" placeholder="Enter Phone" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success mt-2" (click)="save()">Submit</button>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Student Table</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Option</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let StudentItem of StudentArray">
+                <td>{{StudentItem.name | uppercase}}</td>
+                <td>{{StudentItem.address}}</td>
+                <td>{{StudentItem.phone}}</td>
+                <td>
+                    <button types="button" class="btn btn-success me-2" (click)="setUpdate(StudentItem)">Edit</button>
+                    <button types="button" class="btn btn-danger" (click)="setDelete(StudentItem)">Delete</button>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+</div>
